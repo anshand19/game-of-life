@@ -1,0 +1,28 @@
+pipeline
+{
+	agents 
+	{
+		node
+		{
+			label "master"
+		}
+	}
+	environment
+	{
+		repo = "https://github.com/anshand19/game-of-life"
+		major_version= 1
+		minor_version= 0
+		MAVEN = tool 'maven'
+		Jenkins_git_user= "Anshika_Github"
+		branch "master"
+	}
+	stages
+	{
+		stage("Setup")
+		{
+			   PackageVersion = "${env.Major_Version}"+"."+"${env.Minor_Version}"+"."+"${env.BUILD_NUMBER}"
+				currentBuild.displayName = PackageVersion
+				currentBuild.description = "Branch " + "${env.Branch}" + " Build"
+		}
+	}
+}
