@@ -1,6 +1,6 @@
 pipeline
 {
-	agents 
+	agent 
 	{
 		node
 		{
@@ -20,9 +20,11 @@ pipeline
 	{
 		stage("Setup")
 		{
+		steps{
 			   PackageVersion = "${env.Major_Version}"+"."+"${env.Minor_Version}"+"."+"${env.BUILD_NUMBER}"
 				currentBuild.displayName = PackageVersion
 				currentBuild.description = "Branch " + "${env.Branch}" + " Build"
+			}
 		}
 	}
 }
