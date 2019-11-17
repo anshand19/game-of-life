@@ -13,8 +13,8 @@ pipeline
 		major_version= 1
 		minor_version= 0
 		MAVEN = tool 'maven'
-		Jenkins_git_user= "Anshika_Github"
-		branch "master"
+		Jenkins_git_user = "Anshika_Github"
+		branch = "master"
 	}
 	stages
 	{
