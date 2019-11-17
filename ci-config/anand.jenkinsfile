@@ -34,7 +34,7 @@ pipeline
    steps
    {
                echo("CHECKOUT REPOSITORY...")
-				git credentialsId: "$env.jenkins_git_user", url: "$env.repo", branch: "$env.Branch"
+				git credentialsId: "$env.Jenkins_git_user", url: "$env.repo", branch: "$env.Branch"
    
    }
 
