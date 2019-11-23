@@ -16,6 +16,13 @@ pipeline
 		Jenkins_git_user = "Anshika_Github"
 		branch = "master"
 	}
+	parameters{
+		gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'Branch', type: 'Branch' 
+	choice(name: 'BUILD_MODE', choices: ['Pre-Prod', 'Prod'], description: 'Select the build mode')
+	
+	choice(name: 'Environment', choices: ['Pre-Prod', 'Prod'], description: 'Select Deployment Environment')
+	booleanParam(name: 'DEPLOY_TO_ENV', defaultValue: false, description: 'Select if the build must be deployed to the selected environment') 
+	}
 	stages
 	{
 		stage("Setup")
