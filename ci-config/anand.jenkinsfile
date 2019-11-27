@@ -60,19 +60,27 @@ stage("BUILD")
 	  }
    
    }
-   post
+   
+}
+stage("Archeiving Artifact")
+{
+  steps
   {
-  success
-  {
-  echo ("Archiving Artifacts...")
-				warFileName = "GameOfLife-" + "$PackageVersion" + ".war"
-                sh 'mv gameoflife-web/target/gameoflife.war ' + warFileName
-                archiveArtifacts warFileName
-                archiveArtifacts warFileName
+        echo ("====== Archeiving Artifact =======")
+   
+     script
+ {
+              warFileName = "GameOfLife-" + "$PackageVersion" + ".war"
+                  sh 'mv gameoflife-web/target/gameoflife.war ' + warFileName
+                  archiveArtifacts warFileName
+                 
+                 // archiveArtifacts 'gameoflife-web/target/gameoflife.war'
+				    
+
+
+ }
  
   }
- 
-  }
-	}
+}
 }
 }
