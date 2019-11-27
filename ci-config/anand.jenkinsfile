@@ -60,6 +60,19 @@ stage("BUILD")
 	  }
    
    }
+   post
+  {
+  success
+  {
+  echo ("Archiving Artifacts...")
+				warFileName = "GameOfLife-" + "$PackageVersion" + ".war"
+                sh 'mv gameoflife-web/target/gameoflife.war ' + warFileName
+                archiveArtifacts warFileName
+                archiveArtifacts warFileName
+ 
+  }
+ 
+  }
 	}
 }
 }
